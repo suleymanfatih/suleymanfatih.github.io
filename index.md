@@ -1,6 +1,6 @@
 ---
 layout: home
-title: suleymanfatihsimsek
+title: Süleyman Fatih Şimşek
 ---
 
 
