@@ -1,8 +1,8 @@
 # Site settings
-title: miri
-author: miri
+title: SüleymanFatihŞimşek
+author: SüleymanFatihŞimşek
 keywords: "programming, web Developer, JavaScript, Ruby"
-description: "Web Developer in Japan"
+description: "Linux Geliştiricisi"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://miri4ech.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 
