@@ -13,7 +13,7 @@ twitter:            dogmasavar
 #facebook:           username
 github:             suleymanfatih
 # stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
-linkedin:           süleyman-fatih-şimşek
+linkedin:           süleyman-fatih-şimşek-bba9101bb
 #xing:              username
 instagram:          dogmasavar
 #lastfm:            username
@@ -31,7 +31,7 @@ instagram:          dogmasavar
 #xmpp:              username@server.com
 #hackernews:        username
 
-timezone: "Asia/Tokyo"
+timezone: "Europe/Istanbul"
 
 # Build settings
 markdown: kramdown
