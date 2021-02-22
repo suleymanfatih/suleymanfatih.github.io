@@ -36,8 +36,8 @@
 		renderer.setPixelRatio( window.devicePixelRatio );
 		renderer.setSize( window.innerWidth, window.innerHeight );
 		container.appendChild( renderer.domElement );
-		document.addEventListener( 'touchstart', onDocumentTouchStart, passiveSupported ? { passive: true } : false );
-		document.addEventListener( 'touchmove', onDocumentTouchMove, passiveSupported ? { passive: true } : false );
+		document.addEventListener( 'touchstart', onDocumentTouchStart, false );
+		document.addEventListener( 'touchmove', onDocumentTouchMove, false );
 		window.addEventListener( 'resize', onWindowResize, false );
 	}
 	function onWindowResize() {
