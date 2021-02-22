@@ -9,7 +9,7 @@ url: "https://suleymanfatih.github.io/" # the base hostname & protocol for your 
 # Social Links
 email:             sp.samu152@hotmail.com
 #google.plus:        username
-twitter:            dogmasavar
+#twitter:            dogmasavar
 #facebook:           suleymanfatih.simsek
 github:             suleymanfatih
 # stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
@@ -32,7 +32,8 @@ linkedin:           süleyman-fatih-şimşek-bba9101bb
 #keybase:           username
 #xmpp:              username@server.com
 #hackernews:        username
-linktr:             suleymanfatih
+linktree:             suleymanfatih
+linux:              
 
 timezone: "Europe/Istanbul"
 
