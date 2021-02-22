@@ -36,8 +36,8 @@
 		renderer.setPixelRatio( window.devicePixelRatio );
 		renderer.setSize( window.innerWidth, window.innerHeight );
 		container.appendChild( renderer.domElement );
-		document.addEventListener( 'touchstart', onDocumentTouchStart, {passive: true} );
-		document.addEventListener( 'touchmove', onDocumentTouchMove, {passive: true} );
+		document.addEventListener( 'touchstart', onDocumentTouchStart, false );
+		document.addEventListener( 'touchmove', onDocumentTouchMove, false );
 		window.addEventListener( 'resize', onWindowResize, false );
 	}
 	function onWindowResize() {
@@ -60,6 +60,7 @@
 		}
 	}
 	function animate() {
+		
 		requestAnimationFrame( animate );
 		render();
 		
