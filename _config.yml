@@ -2,7 +2,7 @@
 title: SuleymanFatihSimsek
 author: SuleymanFatihSimsek
 keywords: "programming, web Developer, JavaScript, Ruby"
-description: "Linux Gelistiricisi,YKS ögrencisi"
+description: "Linux Gelistiricisi,YKS ogrencisi"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://suleymanfatih.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 
@@ -13,7 +13,7 @@ twitter:            dogmasavar
 #facebook:           username
 github:             suleymanfatih
 # stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
-linkedin:          
+linkedin:           süleyman-fatih-şimşek
 #xing:              username
 instagram:          dogmasavar
 #lastfm:            username
