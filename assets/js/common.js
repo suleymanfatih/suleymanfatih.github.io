@@ -36,8 +36,8 @@
 		renderer.setPixelRatio( window.devicePixelRatio );
 		renderer.setSize( window.innerWidth, window.innerHeight );
 		container.appendChild( renderer.domElement );
-		document.addEventListener( 'touchstart', onDocumentTouchStart, false );
-		document.addEventListener( 'touchmove', onDocumentTouchMove, false );
+		document.addEventListener( 'touchstart', onDocumentTouchStart, passiveSupported ? { passive: true } : false );
+        document.addEventListener( 'touchmove', onDocumentTouchMove, passiveSupported ? { passive: true } : false );
 		window.addEventListener( 'resize', onWindowResize, false );
 	}
 	function onWindowResize() {
@@ -49,14 +49,14 @@
 	}
 	function onDocumentTouchStart( event ) {
 		if ( event.touches.length === 1 ) {
-			event.preventDefault();
+			!passiveSupported && event.preventDefault()
 			mouseX = event.touches[ 0 ].pageX - windowHalfX;
 			mouseY = event.touches[ 0 ].pageY - windowHalfY;
 		}
 	}
 	function onDocumentTouchMove( event ) {
 		if ( event.touches.length === 1 ) {
-			event.preventDefault();
+			!passiveSupported && event.preventDefault()
 			mouseX = event.touches[ 0 ].pageX - windowHalfX;
 			mouseY = event.touches[ 0 ].pageY - windowHalfY;
 		}
