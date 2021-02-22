@@ -37,7 +37,7 @@
 		renderer.setSize( window.innerWidth, window.innerHeight );
 		container.appendChild( renderer.domElement );
 		document.addEventListener( 'touchstart', onDocumentTouchStart, passiveSupported ? { passive: true } : false );
-        document.addEventListener( 'touchmove', onDocumentTouchMove, passiveSupported ? { passive: true } : false );
+		document.addEventListener( 'touchmove', onDocumentTouchMove, passiveSupported ? { passive: true } : false );
 		window.addEventListener( 'resize', onWindowResize, false );
 	}
 	function onWindowResize() {
