@@ -47,20 +47,7 @@
 		camera.updateProjectionMatrix();
 		renderer.setSize( window.innerWidth, window.innerHeight );
 	}
-	function onDocumentTouchStart( event ) {
-		if ( event.touches.length === 1 ) {
-			event.preventDefault();
-			mouseX = event.touches[ 0 ].pageX - windowHalfX;
-			mouseY = event.touches[ 0 ].pageY - windowHalfY;
-		}
-	}
-	function onDocumentTouchMove( event ) {
-		if ( event.touches.length === 1 ) {
-			event.preventDefault();
-			mouseX = event.touches[ 0 ].pageX - windowHalfX;
-			mouseY = event.touches[ 0 ].pageY - windowHalfY;
-		}
-	}
+
 	function animate() {
 		requestAnimationFrame( animate );
 		render();
