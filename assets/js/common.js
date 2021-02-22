@@ -49,14 +49,12 @@
 	}
 	function onDocumentTouchStart( event ) {
 		if ( event.touches.length === 1 ) {
-			!passiveSupported && event.preventDefault()
 			mouseX = event.touches[ 0 ].pageX - windowHalfX;
 			mouseY = event.touches[ 0 ].pageY - windowHalfY;
 		}
 	}
 	function onDocumentTouchMove( event ) {
 		if ( event.touches.length === 1 ) {
-			!passiveSupported && event.preventDefault()
 			mouseX = event.touches[ 0 ].pageX - windowHalfX;
 			mouseY = event.touches[ 0 ].pageY - windowHalfY;
 		}
