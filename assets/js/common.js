@@ -60,8 +60,8 @@
 		}
 	}
 	function animate() {
-		render();
 		requestAnimationFrame( animate );
+		render();
 		
 	}
 	function render() {
