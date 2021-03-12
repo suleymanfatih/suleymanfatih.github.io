@@ -12,8 +12,8 @@
 ## Installation
 
 ```bash
-$ git clone https://github.com/miri4ech/miri4ech.github.io.git
-$ cd miri4ech.github.io/
+$ git clone https://github.com/suleymanfatih/suleymanfatih.github.io.git
+$ cd suleymanfatih.github.io/
 ```
 
 ## Build
