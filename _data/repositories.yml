@@ -1,12 +1,12 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - suleymanfatih
+  - pnmlinux
+ 
 
 github_repos:
-  - alshedivat/al-folio
-  - twbs/bootstrap
-  - jekyll/jekyll
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - jpswalsh/academicons
-  - mathjax/MathJax
+  - suleymanfatih/pnmsourcecode
+  - suleymanfatih/neofetch
+  - pnmlinux/pnmlinux.github.io
+  - suleymanfatih/suleymanfatih.github.io
+  - pnmlinux/live-installer
+  
