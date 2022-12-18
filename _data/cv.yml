@@ -1,14 +1,14 @@
-- title: General Information
+- title: Genel Bilgi
   type: map
   contents:
-    - name: Full Name
-      value: Albert Einstein
-    - name: Date of Birth
-      value: 14th March 1879
-    - name: Languages
-      value: English, German
+    - name: Ad, Soyad
+      value: Süleyman Fatih Şimşek
+    - name: Doğum Tarihi
+      value: 18 Ekim 2002
+    - name: Dil
+      value: Türkçe, İngilizce
 
-- title: Education
+- title: Eğitim
   type: time_table
   contents:
     - title: PhD
