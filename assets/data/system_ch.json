@@ -1,0 +1,45 @@
+{
+  "title": "系统与网络管理",
+  "subtitle": "企业基础设施和技术解决方案",
+  "github": "https://github.com/suleyman-fatih",
+  "bio": "我是一位专门从事Linux系统、网络设计和云基础设施的系统管理员。我在企业环境中提供高效、安全和可扩展的解决方案，并对技术基础设施进行现代化改造。",
+  "githubNote": "查看我的项目和工具",
+  "projects": [
+    {
+      "id": 1,
+      "name": "网络配置管理",
+      "description": "企业网络配置和管理自动化工具。VLAN、路由和防火墙规则的集中管理。",
+      "link": "https://github.com/suleyman-fatih"
+    },
+    {
+      "id": 2,
+      "name": "Linux服务器优化",
+      "description": "Linux服务器性能优化和安全加固。内核调优、资源管理和系统监控。",
+      "link": "https://github.com/suleyman-fatih"
+    },
+    {
+      "id": 3,
+      "name": "基础设施即代码",
+      "description": "使用Terraform和Ansible的基础设施管理脚本。自动化服务器配置和配置管理。",
+      "link": "https://github.com/suleyman-fatih"
+    },
+    {
+      "id": 4,
+      "name": "监控和日志堆栈",
+      "description": "使用Prometheus、Grafana和ELK Stack的系统监控解决方案。实时指标和集中式日志管理。",
+      "link": "https://github.com/suleyman-fatih"
+    },
+    {
+      "id": 5,
+      "name": "云迁移工具",
+      "description": "为将本地系统迁移到云环境而开发的自动化迁移工具。",
+      "link": "https://github.com/suleyman-fatih"
+    },
+    {
+      "id": 6,
+      "name": "备份和灾难恢复",
+      "description": "具有弹性的备份和灾难恢复计划实施。RPO/RTO优化。",
+      "link": "https://github.com/suleyman-fatih"
+    }
+  ]
+}

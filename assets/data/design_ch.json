@@ -1,0 +1,70 @@
+{
+  "title": "我的平面设计之旅",
+  "subtitle": "创意与美学",
+  "description": "我相信设计的力量。每一个像素、每一种颜色和每一个排版选择都是将我的愿景付诸实践的一部分。在我的作品中，我追求现代性、美学和功能性的完美结合。",
+  "bio": "作为平面设计师，我从事品牌识别设计、UI/UX设计、社交媒体内容和创意活动工作。我为每个项目带来独特的视角，提供原创和有影响力的设计。",
+  "gallery": [
+    {
+      "id": 1,
+      "title": "品牌识别设计",
+      "description": "企业品牌设计 - 徽标、色彩调色板、排版系统",
+      "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=500&fit=crop"
+    },
+    {
+      "id": 2,
+      "title": "Web用户界面设计",
+      "description": "电子商务平台的响应式UI设计和原型设计",
+      "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=500&fit=crop"
+    },
+    {
+      "id": 3,
+      "title": "社交媒体活动",
+      "description": "数字营销视觉内容设计 - Instagram、Facebook、LinkedIn",
+      "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=500&fit=crop"
+    },
+    {
+      "id": 4,
+      "title": "插图作品",
+      "description": "编辑和创意作品 - 自定义插图和矢量艺术",
+      "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=500&fit=crop"
+    },
+    {
+      "id": 5,
+      "title": "产品设计",
+      "description": "物理产品包装设计、标签和3D可视化",
+      "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=500&fit=crop"
+    },
+    {
+      "id": 6,
+      "title": "排版作品",
+      "description": "字体设计和排版实验作品 - 海报设计",
+      "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=500&fit=crop"
+    }
+    ,
+    {
+      "id": 7,
+      "title": "海报系列",
+      "description": "活动海报",
+      "image": "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?w=800&h=533&fit=crop"
+    },
+    {
+      "id": 8,
+      "title": "包装设计",
+      "description": "产品包装设计",
+      "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=533&fit=crop"
+    },
+    {
+      "id": 9,
+      "title": "社交内容",
+      "description": "社交媒体视觉素材",
+      "image": "https://images.unsplash.com/photo-1529068755536-a5ade0dcb4f4?w=800&h=533&fit=crop"
+    }
+  ],
+  "video": {
+    "title": "设计过程",
+    "description": "视频展示了我的设计过程、我的想法是如何产生的以及我的设计理念。",
+    "embed": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  }
+
+  ,"portfolio2026": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+}
