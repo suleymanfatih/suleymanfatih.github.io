@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Süleyman Fatih - CV & Portfolyo</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo-section">
+        <h1 class="logo">Süleyman Fatih</h1>
+        <p class="tagline">Designer • Developer • System Admin</p>
+      </div>
+      
+      <div class="controls">
+        <!-- Language Selector -->
+        <div class="control-group language-group">
+          <button class="control-btn language-btn" id="langBtn">
+            <i class="fas fa-globe"></i>
+            <span class="btn-text">Türkçe</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="dropdown" id="langDropdown">
+            <button class="dropdown-item" data-lang="tr"><span>🇹🇷</span> Türkçe</button>
+            <button class="dropdown-item" data-lang="en"><span>🇬🇧</span> English</button>
+            <button class="dropdown-item" data-lang="zh"><span>🇨🇳</span> 中文</button>
+          </div>
+        </div>
+
+        <!-- Theme Toggle -->
+        <div class="control-group theme-group">
+          <button class="control-btn theme-btn" id="themeBtn">
+            <i class="fas fa-moon"></i>
+            <span class="btn-text">Koyu</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Tab Navigation -->
+    <div class="tabs-wrapper">
+      <div class="tab-navigation">
+        <button class="tab-btn active" data-tab="personal">
+          <span class="tab-icon">👤</span>
+          <span class="tab-label">Kişisel Hayat</span>
+        </button>
+        <button class="tab-btn" data-tab="design">
+          <span class="tab-icon">🎨</span>
+          <span class="tab-label">Grafik Tasarım</span>
+        </button>
+        <button class="tab-btn" data-tab="systems">
+          <span class="tab-icon">⚙️</span>
+          <span class="tab-label">Sistem Yönetimi</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Tab Contents -->
+    <div id="personal-tab" class="tab-content active"></div>
+    <div id="design-tab" class="tab-content"></div>
+    <div id="systems-tab" class="tab-content"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content"></div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Süleyman Fatih. Tüm hakları saklıdır.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
