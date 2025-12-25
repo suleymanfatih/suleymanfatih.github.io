@@ -9,7 +9,7 @@
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #6a2beb 0%, #f60847 100%);
+      background: none;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -69,8 +69,8 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0,0,0,0.35);
-      backdrop-filter: blur(8px);
+      background: rgba(0,0,0,0.10);
+      backdrop-filter: blur(2px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -93,6 +93,17 @@
     }
     .play-btn:hover {
       background: rgba(255,255,255,0.95);
+    }
+    .background-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 1;
     }
     .media-container {
       position: fixed;
@@ -167,92 +178,111 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <div class="top-bar">
-    <button class="back-btn" onclick="window.location.href='index.html'" title="Geri Dön">
-      <i class="fa-solid fa-house"></i>
-    </button>
-    <button class="mute-btn" id="muteBtn" title="Sesi Aç/Kapat">
-      <i class="fa-solid fa-volume-high" id="muteIcon"></i>
-    </button>
-  </div>
-  <div class="media-container">
-    <video id="relaxVideo" src="assets/video/relax.mp4" loop muted playsinline style="display:none;"></video>
-    <div id="videoOverlay" class="video-overlay">
-      <div style="display:flex;flex-direction:column;align-items:center;">
-        <button id="playBtn" class="play-btn" title="Başlat">
-          <i class="fa-solid fa-fire-flame-curved"></i>
-        </button>
-        <span id="restText" class="rest-text" style="margin-top:18px;font-size:1.3rem;color:#fff;text-shadow:0 2px 8px #000;">press to rest</span>
-        <span id="countdown" class="countdown" style="margin-top:6px;font-size:1.1rem;color:#fff;text-shadow:0 2px 8px #000;"></span>
+    <video class="background-video" src="assets/video/bg.mp4" autoplay loop muted playsinline></video>
+    <div id="screenFade" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:#000;opacity:0;z-index:9999;transition:opacity 1.2s;"></div>
+    <div class="top-bar">
+      <button class="back-btn" onclick="window.location.href='index.html'" title="Geri Dön">
+        <i class="fa-solid fa-house"></i>
+      </button>
+      <button class="mute-btn" id="muteBtn" title="Sesi Aç/Kapat">
+        <i class="fa-solid fa-volume-high" id="muteIcon"></i>
+      </button>
+    </div>
+    <div class="media-container">
+      <video id="relaxVideo" src="assets/video/relax.mp4" loop muted playsinline style="display:none;"></video>
+      <div id="videoOverlay" class="video-overlay">
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <button id="playBtn" class="play-btn" title="Başlat">
+            <i class="fa-solid fa-fire-flame-curved"></i>
+          </button>
+          <span id="restText" class="rest-text" style="margin-top:18px;font-size:1.3rem;color:#fff;text-shadow:0 2px 8px #000;">press to rest</span>
+          <span id="countdown" class="countdown" style="margin-top:6px;font-size:1.1rem;color:#fff;text-shadow:0 2px 8px #000;"></span>
+        </div>
       </div>
     </div>
-  </div>
-  <audio id="bgAudio" loop>
-    <source src="assets/audio/relax.mp3" type="audio/mpeg">
-    Tarayıcınız audio elementini desteklemiyor.
-  </audio>
-  <script>
-    // Ses aç/kapat
-    const audio = document.getElementById('bgAudio');
-    const muteBtn = document.getElementById('muteBtn');
-    const muteIcon = document.getElementById('muteIcon');
-    muteBtn.addEventListener('click', function() {
-      audio.muted = !audio.muted;
-      muteIcon.className = audio.muted ? 'fa-solid fa-volume-xmark' : 'fa-solid fa-volume-high';
-    });
+    <audio id="bgAudio" loop>
+      <source src="assets/audio/relax.mp3" type="audio/mpeg">
+      Tarayıcınız audio elementini desteklemiyor.
+    </audio>
+    <script>
+      // Ses aç/kapat
+      const audio = document.getElementById('bgAudio');
+      const muteBtn = document.getElementById('muteBtn');
+      const muteIcon = document.getElementById('muteIcon');
+      muteBtn.addEventListener('click', function() {
+        audio.muted = !audio.muted;
+        muteIcon.className = audio.muted ? 'fa-solid fa-volume-xmark' : 'fa-solid fa-volume-high';
+      });
 
-    // Video ve ses başlatma overlay
-    const playBtn = document.getElementById('playBtn');
-    const videoOverlay = document.getElementById('videoOverlay');
-    const relaxVideo = document.getElementById('relaxVideo');
-    const restText = document.getElementById('restText');
-    const countdown = document.getElementById('countdown');
-    let followMouse = false;
-    let mouseMoveHandler = null;
+      // Video ve ses başlatma overlay
+      const playBtn = document.getElementById('playBtn');
+      const videoOverlay = document.getElementById('videoOverlay');
+      const relaxVideo = document.getElementById('relaxVideo');
+      const restText = document.getElementById('restText');
+      const countdown = document.getElementById('countdown');
+      const screenFade = document.getElementById('screenFade');
+      let followMouse = false;
+      let mouseMoveHandler = null;
 
-    // Geriye sayım fonksiyonu
-    let counter = 4;
-    const baseSize = 1.1; // rem
-    countdown.textContent = counter;
-    countdown.style.fontSize = baseSize + 'rem';
-    const countdownInterval = setInterval(() => {
-      counter--;
-      if (counter > 0) {
-        countdown.textContent = counter;
-        countdown.style.fontSize = (baseSize + (4-counter)*0.3) + 'rem';
-      } else {
-        countdown.textContent = '';
-        restText.style.display = 'none';
-        countdown.style.display = 'none';
-        clearInterval(countdownInterval);
-        // 4 saniye sonra ikonu mouse'u takip ettir
+      // Geriye sayım fonksiyonu
+      let counter = 7;
+      const baseSize = 1.1; // rem
+      countdown.textContent = counter;
+      countdown.style.fontSize = baseSize + 'rem';
+      const countdownInterval = setInterval(() => {
+        counter--;
+        if (counter > 0) {
+          countdown.textContent = counter;
+          countdown.style.fontSize = (baseSize + (7-counter)*0.3) + 'rem';
+        } else {
+          countdown.textContent = '';
+          restText.style.display = 'none';
+          countdown.style.display = 'none';
+          clearInterval(countdownInterval);
+          // 7 saniye sonra ikonu mouse'u takip ettir
+          setTimeout(() => {
+            followMouse = true;
+            playBtn.style.transition = 'none';
+            mouseMoveHandler = function(e) {
+              const x = e.clientX;
+              const y = e.clientY;
+              playBtn.style.position = 'fixed';
+              playBtn.style.left = (x - playBtn.offsetWidth/2) + 'px';
+              playBtn.style.top = (y - playBtn.offsetHeight/2) + 'px';
+              playBtn.style.zIndex = '100';
+            };
+            document.addEventListener('mousemove', mouseMoveHandler);
+          }, 0);
+        }
+      }, 1000);
+
+      playBtn.addEventListener('click', function() {
+        // Ekran karartma efekti başlat
+        screenFade.style.display = 'block';
         setTimeout(() => {
-          followMouse = true;
-          playBtn.style.transition = 'none';
-          mouseMoveHandler = function(e) {
-            const x = e.clientX;
-            const y = e.clientY;
-            playBtn.style.position = 'fixed';
-            playBtn.style.left = (x - playBtn.offsetWidth/2) + 'px';
-            playBtn.style.top = (y - playBtn.offsetHeight/2) + 'px';
-            playBtn.style.zIndex = '100';
-          };
-          document.addEventListener('mousemove', mouseMoveHandler);
-        }, 0);
-      }
-    }, 1000);
-
-    playBtn.addEventListener('click', function() {
-      relaxVideo.style.display = 'block';
-      relaxVideo.muted = false;
-      relaxVideo.autoplay = true;
-      relaxVideo.play();
-      audio.autoplay = true;
-      audio.play();
-      videoOverlay.style.display = 'none';
-      // Mouse takip olayını kaldır
-      if (mouseMoveHandler) document.removeEventListener('mousemove', mouseMoveHandler);
-    });
-  </script>
-</body>
+          screenFade.style.opacity = '1';
+          setTimeout(() => {
+            relaxVideo.style.display = 'block';
+            relaxVideo.muted = false;
+            relaxVideo.autoplay = true;
+            relaxVideo.currentTime = 0;
+            relaxVideo.play();
+            audio.autoplay = true;
+            audio.currentTime = 0;
+            audio.play();
+            videoOverlay.style.display = 'none';
+            // Mouse takip olayını kaldır
+            if (mouseMoveHandler) document.removeEventListener('mousemove', mouseMoveHandler);
+            // Karartmayı kaldır
+            setTimeout(() => {
+              screenFade.style.opacity = '0';
+              setTimeout(() => {
+                screenFade.style.display = 'none';
+              }, 1200);
+            }, 1200);
+          }, 1200);
+        }, 10);
+      });
+    </script>
+  </body>
 </html>
