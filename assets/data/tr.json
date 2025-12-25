@@ -89,7 +89,7 @@
     {
       "name": "NetInstall Combo",
       "description": "Arch Linux, Pardus ve Gentoo tabanlı sistemlerin tek bir ISO üzerinden otomatik ve temiz şekilde kurulmasını sağlayan, hafif ve modüler bir kurulum altyapısı. 45 MB boyutunda, özelleştirilebilir arayüz ve çoklu dağıtım desteği sunar.",
-      "link": "https://github.com/suleymanfatih/netinstall-combo"
+      "link": "https://github.com/netinstall-combo"
     },
     {
       "name": "Sistem Notları & Bilgiler",

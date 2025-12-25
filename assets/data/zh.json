@@ -90,7 +90,7 @@
         {
           "name": "NetInstall Combo",
           "description": "一个轻量级、模块化的安装框架，可通过单一 ISO 自动、干净地安装 Arch Linux、Pardus 与 Gentoo。支持自定义界面与多发行版，体积仅 45MB。",
-          "link": "https://github.com/suleymanfatih/netinstall-combo"
+          "link": "https://github.com/netinstall-combo"
         },
         {
           "name": "系统笔记与文档",
