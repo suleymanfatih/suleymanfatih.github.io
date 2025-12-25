@@ -23,29 +23,33 @@
       width: 100vw;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      padding: 24px 24px 0 24px;
+      align-items: flex-start;
+      padding: 18px 18px 0 18px;
       z-index: 10;
       pointer-events: none;
+      box-sizing: border-box;
     }
     .back-btn, .mute-btn {
       pointer-events: auto;
-      background: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.55);
       border: none;
       border-radius: 50%;
-      width: 48px;
-      height: 48px;
+      width: 44px;
+      height: 44px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
       cursor: pointer;
       transition: background 0.2s;
-      font-size: 1.5rem;
+      font-size: 1.35rem;
       outline: none;
+      margin: 0 2px;
+      position: relative;
+      overflow: hidden;
     }
     .back-btn:hover, .mute-btn:hover {
-      background: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.85);
     }
     .back-btn {
       margin-right: auto;
@@ -53,23 +57,63 @@
     .mute-btn {
       margin-left: auto;
     }
-    .gif-container {
+    .mute-btn i {
+      color: #6a2beb;
+      font-size: 1.3em;
+      transition: color 0.2s;
+    }
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(8px);
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 60vh;
-      width: 100vw;
-      margin-top: 60px;
+      z-index: 2;
     }
-    .gif-container img {
-      max-width: 90vw;
-      max-height: 60vh;
-      border-radius: 24px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-      object-fit: contain;
-      width: 100%;
-      height: auto;
+    .play-btn {
+      background: rgba(255,255,255,0.7);
+      border: none;
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: #f60847;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .play-btn:hover {
+      background: rgba(255,255,255,0.95);
+    }
+    .media-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .media-container video {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      border-radius: 0;
+      box-shadow: none;
       display: block;
+      background: #000;
     }
     audio {
       margin-top: 32px;
@@ -80,22 +124,26 @@
       display: none;
     }
     @media (max-width: 600px) {
-      .gif-container {
-        height: 40vh;
-        margin-top: 40px;
+      .media-container {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
       }
-      .gif-container img {
-        max-width: 98vw;
-        max-height: 40vh;
-        border-radius: 12px;
+      .media-container video {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
       }
       .top-bar {
-        padding: 12px 8px 0 8px;
+        padding: 8px 4px 0 4px;
       }
       .back-btn, .mute-btn {
-        width: 38px;
-        height: 38px;
-        font-size: 1.1rem;
+        width: 34px;
+        height: 34px;
+        font-size: 1rem;
+      }
+      .mute-btn i {
+        font-size: 1em;
       }
     }
   </style>
@@ -103,17 +151,22 @@
 </head>
 <body>
   <div class="top-bar">
-    <button class="back-btn" onclick="window.history.back()" title="Geri Dön">
-      <i class="fas fa-arrow-left"></i>
+    <button class="back-btn" onclick="window.location.href='index.html'" title="Geri Dön">
+      <i class="fa-solid fa-house"></i>
     </button>
     <button class="mute-btn" id="muteBtn" title="Sesi Aç/Kapat">
-      <i class="fas fa-volume-up" id="muteIcon"></i>
+      <i class="fa-solid fa-volume-high" id="muteIcon"></i>
     </button>
   </div>
-  <div class="gif-container">
-    <img src="assets/img/publication_preview/relax.gif" alt="Dinlendirici GIF">
+  <div class="media-container">
+    <video id="relaxVideo" src="assets/video/relax.mp4" loop muted playsinline style="display:none;"></video>
+    <div id="videoOverlay" class="video-overlay">
+      <button id="playBtn" class="play-btn" title="Başlat">
+        <i class="fa-solid fa-fire-flame-curved"></i>
+      </button>
+    </div>
   </div>
-  <audio id="bgAudio" autoplay loop>
+  <audio id="bgAudio" loop>
     <source src="assets/audio/relax.mp3" type="audio/mpeg">
     Tarayıcınız audio elementini desteklemiyor.
   </audio>
@@ -124,9 +177,22 @@
     const muteIcon = document.getElementById('muteIcon');
     muteBtn.addEventListener('click', function() {
       audio.muted = !audio.muted;
-      muteIcon.className = audio.muted ? 'fas fa-volume-mute' : 'fas fa-volume-up';
+      muteIcon.className = audio.muted ? 'fa-solid fa-volume-xmark' : 'fa-solid fa-volume-high';
     });
-    // GIF zaten loopta oynar, ekstra bir şey gerekmez
+
+    // Video ve ses başlatma overlay
+    const playBtn = document.getElementById('playBtn');
+    const videoOverlay = document.getElementById('videoOverlay');
+    const relaxVideo = document.getElementById('relaxVideo');
+    playBtn.addEventListener('click', function() {
+      relaxVideo.style.display = 'block';
+      relaxVideo.muted = false;
+      relaxVideo.autoplay = true;
+      relaxVideo.play();
+      audio.autoplay = true;
+      audio.play();
+      videoOverlay.style.display = 'none';
+    });
   </script>
 </body>
 </html>
