@@ -1,93 +1,102 @@
 {
   "name": "Süleyman Fatih",
   "tabs": {
-    "personal": {
-      "title": "Kişisel Hayat",
-      "icon": "👤",
-      "sections": [
-        {
-          "title": "Hakkımda",
-          "content": "Ben Süleyman Fatih'im. Teknoloji ve yaratıcılığa tutkulu biriyim. Sistem yönetimi, ağ yönetimi ve grafik tasarım alanlarında profesyonel olarak çalışıyorum."
-        },
-        {
-          "title": "İlgi Alanlarım",
-          "content": "Yazılım geliştirme, sistem mimarisi, grafik tasarım, web tasarım, UI/UX tasarım ve veri analitiksi ile ilgiliyim."
-        },
-        {
-          "title": "Eğitim",
-          "content": "İlgili alan ve teknik becerilerde kendimi sürekli geliştiriyor ve en son teknolojileri takip ediyorum."
-        }
+"personal": {
+  "title": "Hakkımda",
+  "icon": "👤",
+  "sections": [
+    {
+      "title": "Ben Kimim?",
+      "content": "Ben Süleyman Fatih. Teknoloji, tasarım ve sistem dünyasında üretmeyi seven; fikirleri görsele ve yapıya dönüştürmeyi hedefleyen bir geliştirici ve tasarımcıyım. Uzun süredir hem teknik hem de yaratıcı alanlarda aktif olarak çalışıyor, projelerimi uçtan uca kendi bakış açımla hayata geçiriyorum."
+    },
+    {
+      "title": "İlgi Alanlarım:",
+      "content": "Sistem ve ağ yönetimi, yazılım altyapıları, grafik tasarım, UI/UX tasarımı ve web teknolojileriyle ilgileniyorum. Teknik altyapıyı estetikle birleştiren, işlevsel ve sürdürülebilir çözümler üretmeyi önemsiyorum."
+    },
+    {
+      "title": "Kendimi Nasıl Geliştiriyorum?",
+      "content": "Sürekli öğrenmeye odaklıyım. Güncel teknolojileri takip eder, kişisel projeler üretir ve gerçek ihtiyaçlara yönelik çözümler geliştiririm. Öğrenmeyi yalnızca teoriyle değil, doğrudan uygulama ve üretimle desteklerim."
+    }
       ],
-      "projects": [
-        {
-          "name": "Proje 1",
-          "description": "Açıklama",
-          "link": "https://github.com"
-        },
-        {
-          "name": "Proje 2",
-          "description": "Açıklama",
-          "link": "https://github.com"
-        }
+"projects": [
+  {
+    "name": "3 Çeyrek Derslik",
+    "description": "Sistem, ağ yönetimi ve Linux odaklı içerikler ürettiğim kişisel eğitim projesi. İçerik üretimi, görsel kimlik, video kurgusu, anlatım dili ve marka bütünlüğü tamamen tarafımdan oluşturuldu. Teknik bilgiyi sade ve anlaşılır bir yapıyla sunmayı hedefleyen uzun soluklu bir projedir.",
+    "link": "https://www.youtube.com/@3ceyrekderslik"
+  },
+  {
+    "name": "PNM OS",
+    "description": "Arch Linux tabanlı, performans ve sadelik odaklı kişisel işletim sistemi projesi. Sistem yapılandırması, paket yönetimi, masaüstü özelleştirmeleri ve kullanıcı deneyimi tarafı tamamen bana aittir. Linux mimarisini derinlemesine öğrenmek ve optimize etmek amacıyla geliştirilmiştir.",
+    "link": "https://github.com/pnmlinux/"
+  }
       ]
     },
     "design": {
       "title": "Grafik Tasarım",
       "icon": "🎨",
-      "description": "Grafik tasarım ve yaratıcı proje portföyüm",
-      "career": "Grafik tasarım alanında 5+ yıl deneyime sahibim. Modern tasarım ilkeleri ve kullanıcı deneyimine odaklanarak çalışmalar yapıyorum.",
+      "description": "Tasarımı yalnızca görsel değil, bir anlatım dili olarak ele aldığım yaratıcı çalışmalar üretiyorum.",
+      "career": "6+ yıllık deneyimim boyunca logo, kurumsal kimlik, dijital içerik ve baskı tasarımları ürettim. Amacım estetik ile işlevselliği dengede tutan işler ortaya koymak.",
       "gallery": [
         {
           "image": "assets/img/gallery/design1.jpg",
-          "title": "Tasarım 1"
+          "title": "Marka Kimliği"
         },
         {
           "image": "assets/img/gallery/design2.jpg",
-          "title": "Tasarım 2"
+          "title": "Basılı İletişim"
         },
         {
           "image": "assets/img/gallery/design3.jpg",
-          "title": "Tasarım 3"
+          "title": "Yaratıcı Ambalaj Tasarımı"
         },
         {
           "image": "assets/img/gallery/design4.jpg",
-          "title": "Tasarım 4"
+          "title": "Menü & Amerikan Servis Tasarımı"
         },
         {
           "image": "assets/img/gallery/design5.jpg",
-          "title": "Tasarım 5"
+          "title": "Dergi Kapağı Tasarımı"
         },
         {
           "image": "assets/img/gallery/design6.jpg",
-          "title": "Tasarım 6"
+          "title": "Konsept Tasarım"
+        },
+                {
+          "image": "assets/img/gallery/design7.jpg",
+          "title": "Dijital İçerik"
+        },
+{
+          "image": "assets/img/gallery/design8.jpg",
+          "title": "Monoline Art / Sanat Çalışması"
         }
+
       ],
       "video": {
-        "title": "Proje Tanıtım Videosu",
-        "url": "assets/video/sample.mp4",
+        "title": "Portföy Tanıtım Videosu",
+        "url": "https://youtu.be/jgE0-TCyGQE",
         "thumbnail": "assets/img/gallery/video-thumb.jpg"
       }
     },
     "systems": {
-      "title": "Sistem & Ağ Yönetimi",
-      "icon": "⚙️",
-      "description": "Sistem ve ağ yönetimi projelerim",
-      "github": {
-        "username": "suleymanfatih",
-        "link": "https://github.com/suleymanfatih"
-      },
-      "projects": [
-        {
-          "name": "Proje 1",
-          "description": "Açıklama",
-          "link": "https://github.com/suleymanfatih/proje1"
-        },
-        {
-          "name": "Proje 2",
-          "description": "Açıklama",
-          "link": "https://github.com/suleymanfatih/proje2"
-        }
-      ]
+  "title": "Sistem & Ağ Yönetimi",
+  "icon": "⚙️",
+  "description": "Linux tabanlı sistemler, otomasyon çözümleri ve altyapı odaklı projeler.",
+  "github": {
+    "username": "suleymanfatih",
+    "link": "https://github.com/suleymanfatih"
+  },
+  "projects": [
+    {
+      "name": "NetInstall Combo",
+      "description": "Arch Linux, Pardus ve Gentoo tabanlı sistemlerin tek bir ISO üzerinden otomatik ve temiz şekilde kurulmasını sağlayan, hafif ve modüler bir kurulum altyapısı. 45 MB boyutunda, özelleştirilebilir arayüz ve çoklu dağıtım desteği sunar.",
+      "link": "https://github.com/suleymanfatih/netinstall-combo"
+    },
+    {
+      "name": "Sistem Notları & Bilgiler",
+      "description": "Linux, sistem yönetimi, ağ yapılandırmaları ve terminal odaklı çözümler üzerine hazırladığım dokümantasyonlar ve pratik notlar. Gerçek kullanım senaryolarına dayalı içerikler.",
+      "link": "https://gist.github.com/suleymanfatih"
+    }
+  ]
     }
   },
   "footer": {
@@ -98,17 +107,17 @@
     },
     "youtube": {
       "label": "YouTube",
-      "url": "https://youtube.com",
+      "url": "https://www.youtube.com/@suleymanfatihsimsek8248",
       "icon": "fab fa-youtube"
     },
     "email": {
       "label": "Email",
-      "url": "mailto:suleymanfatih@gmail.com",
+      "url": "mailto:suleymanfatih@tutanota.com",
       "icon": "fas fa-envelope"
     },
     "instagram": {
       "label": "Instagram",
-      "url": "https://instagram.com",
+      "url": "https://instagram.com/suleymanfatih",
       "icon": "fab fa-instagram"
     }
   }

@@ -8,37 +8,43 @@
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Animated Blob Background -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="blob blob-4"></div>
+
+  <!-- Animated Rings (right side) -->
+  <div class="rings-container">
+    <div class="ring ring-1"></div>
+    <div class="ring ring-2"></div>
+    <div class="ring ring-3"></div>
+    <div class="ring ring-4"></div>
+  </div>
+
   <!-- Header -->
   <header>
     <div class="header-container">
+      <!-- Language selector (left) -->
+      <div class="control-group language-group">
+        <button class="control-btn language-btn" id="langBtn" title="Change language">
+          <span class="lang-labels">tr en ch</span>
+        </button>
+      </div>
+
       <div class="logo-section">
         <h1 class="logo">Süleyman Fatih</h1>
         <p class="tagline">Designer • Developer • System Admin</p>
       </div>
-      
-      <div class="controls">
-        <!-- Language Selector -->
-        <div class="control-group language-group">
-          <button class="control-btn language-btn" id="langBtn">
-            <i class="fas fa-globe"></i>
-            <span class="btn-text">Türkçe</span>
-            <i class="fas fa-chevron-down"></i>
-          </button>
-          <div class="dropdown" id="langDropdown">
-            <button class="dropdown-item" data-lang="tr"><span>🇹🇷</span> Türkçe</button>
-            <button class="dropdown-item" data-lang="en"><span>🇬🇧</span> English</button>
-            <button class="dropdown-item" data-lang="zh"><span>🇨🇳</span> 中文</button>
-          </div>
-        </div>
 
-        <!-- Theme Toggle -->
+      <div class="controls">
+        <!-- Theme Toggle (icon only, right) -->
         <div class="control-group theme-group">
-          <button class="control-btn theme-btn" id="themeBtn">
+          <button class="control-btn theme-btn" id="themeBtn" title="Toggle theme">
             <i class="fas fa-moon"></i>
-            <span class="btn-text">Koyu</span>
           </button>
         </div>
       </div>

@@ -6,10 +6,20 @@ let isDarkMode = localStorage.getItem('darkMode') === 'true';
 let languageData = {};
 
 // ============================================
+// BACKGROUND SETUP
+// ============================================
+function initializeBackground() {
+  // Blobs are handled by CSS animations; no JS needed
+}
+
+// ============================================
 // PAGE INITIALIZATION
 // ============================================
 document.addEventListener('DOMContentLoaded', function() {
   console.log('🚀 Portfolio loading...');
+  
+  // Initialize background
+  initializeBackground();
   
   // Set theme
   if (isDarkMode) {
@@ -25,6 +35,11 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ============================================
+// PARALLAX EFFECT
+// ============================================
+// (Parallax removed; using CSS blob animations instead)
+
+// ============================================
 // EVENT LISTENERS
 // ============================================
 function setupEventListeners() {
@@ -37,24 +52,19 @@ function setupEventListeners() {
     });
   }
   
-  // Language button
+  // Language button (clicking a code selects that language; clicking empty area cycles)
   const langBtn = document.getElementById('langBtn');
   if (langBtn) {
     langBtn.addEventListener('click', function(e) {
       e.preventDefault();
-      toggleLanguageDropdown();
+      const codeEl = e.target.closest('.code');
+      if (codeEl && codeEl.dataset && codeEl.dataset.lang) {
+        changeLanguage(codeEl.dataset.lang);
+      } else {
+        cycleLanguage();
+      }
     });
   }
-  
-  // Language items
-  const langItems = document.querySelectorAll('.language-group .dropdown-item');
-  langItems.forEach(item => {
-    item.addEventListener('click', function(e) {
-      e.preventDefault();
-      const lang = this.getAttribute('data-lang');
-      changeLanguage(lang);
-    });
-  });
   
   // Tab buttons - use event delegation
   const tabNav = document.querySelector('.tab-navigation');
@@ -68,17 +78,8 @@ function setupEventListeners() {
       }
     });
   }
-  
-  // Close dropdowns
-  document.addEventListener('click', function(e) {
-    if (!e.target.closest('.control-group')) {
-      const dropdown = document.getElementById('langDropdown');
-      if (dropdown) {
-        dropdown.classList.remove('active');
-      }
-    }
-  });
 }
+
 
 // ============================================
 // LANGUAGE MANAGEMENT
@@ -87,9 +88,8 @@ function loadLanguageData(lang) {
   fetch(`assets/data/${lang}.json`)
     .then(response => response.json())
     .then(data => {
-      languageData = data;
+        languageData = data;
       updatePageContent();
-      setupEventListeners();
     })
     .catch(error => console.error('Language load error:', error));
 }
@@ -97,16 +97,15 @@ function loadLanguageData(lang) {
 function changeLanguage(lang) {
   currentLanguage = lang;
   localStorage.setItem('language', lang);
-  const dropdown = document.getElementById('langDropdown');
-  if (dropdown) dropdown.classList.remove('active');
   loadLanguageData(lang);
 }
 
-function toggleLanguageDropdown() {
-  const dropdown = document.getElementById('langDropdown');
-  if (dropdown) {
-    dropdown.classList.toggle('active');
-  }
+// Cycle through available languages when language button is clicked
+function cycleLanguage() {
+  const langs = ['tr', 'en', 'zh'];
+  const currentIndex = langs.indexOf(currentLanguage);
+  const nextIndex = (currentIndex + 1) % langs.length;
+  changeLanguage(langs[nextIndex]);
 }
 
 // ============================================
@@ -117,15 +116,18 @@ function toggleTheme() {
   document.body.classList.toggle('dark-mode');
   localStorage.setItem('darkMode', isDarkMode);
   updateThemeButton();
+  // Reinitialize background with new theme colors
+  initializeBackground();
 }
 
 function updateThemeButton() {
   const themeBtn = document.getElementById('themeBtn');
   if (themeBtn) {
+    // Icon-only button
     if (isDarkMode) {
-      themeBtn.innerHTML = '<i class="fas fa-sun"></i><span class="btn-text">Açık</span>';
+      themeBtn.innerHTML = '<i class="fas fa-sun"></i>';
     } else {
-      themeBtn.innerHTML = '<i class="fas fa-moon"></i><span class="btn-text">Koyu</span>';
+      themeBtn.innerHTML = '<i class="fas fa-moon"></i>';
     }
   }
 }
@@ -134,20 +136,17 @@ function updateThemeButton() {
 // TAB MANAGEMENT
 // ============================================
 function switchTab(tabName) {
-  // Keep all tab contents visible; only highlight the selected one
+  // Hide all tab contents and deactivate buttons
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
 
-  // Activate button
+  // Show selected tab and activate button
   const btn = document.querySelector('[data-tab="' + tabName + '"]');
   if (btn) btn.classList.add('active');
 
-  // Mark the selected content as active (do not hide others)
-  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
   const tab = document.getElementById(tabName + '-tab');
   if (tab) {
     tab.classList.add('active');
-    // Smooth scroll into view so user notices the selected section
-    try { tab.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch (e) {}
   }
 }
 
@@ -171,19 +170,12 @@ function updatePageContent() {
 
 function updateLanguageButton() {
   const langBtn = document.getElementById('langBtn');
-  const names = { 'tr': 'Türkçe', 'en': 'English', 'zh': '中文' };
   if (langBtn) {
-    langBtn.innerHTML = `<i class="fas fa-globe"></i><span class="btn-text">${names[currentLanguage]}</span><i class="fas fa-chevron-down"></i>`;
+    // Render the three shortcodes and highlight the active one
+    const codes = ['tr','en','zh'];
+    const html = codes.map(c => `<span class="code ${c === currentLanguage ? 'active' : ''}" data-lang="${c}">${c === 'zh' ? 'ch' : c}</span>`).join(' ');
+    langBtn.innerHTML = `<span class="lang-labels">${html}</span>`;
   }
-  
-  // Update dropdown
-  document.querySelectorAll('.language-group .dropdown-item').forEach(item => {
-    if (item.getAttribute('data-lang') === currentLanguage) {
-      item.classList.add('active');
-    } else {
-      item.classList.remove('active');
-    }
-  });
 }
 
 function updateTabButtonLabels() {
@@ -233,9 +225,20 @@ function renderDesignTab() {
   
   const data = languageData.tabs.design;
   let html = `<div class="design-intro"><h2>${data.title}</h2><p>${data.description}</p></div>`;
-  
+
   if (data.video) {
-    html += `<div class="video-container"><h3>${data.video.title}</h3><div class="video-wrapper"><video controls><source src="${data.video.url}" type="video/mp4"></video></div></div>`;
+    html += `<div class="video-container"><h3>${data.video.title || ''}</h3>`;
+
+    // Support for: { youtubeId: 'ID' } or { url: 'https://youtu.be/...' } or local mp4
+    const vid = data.video;
+    const youtubeId = vid.youtubeId || extractYouTubeID(vid.url || '');
+    if (youtubeId) {
+      html += `<div class="video-wrapper"><iframe src="https://www.youtube.com/embed/${youtubeId}" title="${(vid.title||'Video')}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
+    } else if (vid.url && vid.url.endsWith('.mp4')) {
+      html += `<div class="video-wrapper"><video controls><source src="${vid.url}" type="video/mp4">Your browser does not support the video tag.</video></div>`;
+    }
+
+    html += `</div>`;
   }
   
   if (data.career) {
@@ -286,4 +289,27 @@ function renderFooter() {
   });
   
   el.innerHTML = html;
+}
+
+// Helper: extract YouTube ID from common URL formats
+function extractYouTubeID(url) {
+  if (!url) return null;
+  // If already an ID
+  if (/^[A-Za-z0-9_-]{11}$/.test(url)) return url;
+  try {
+    const u = new URL(url);
+    // youtu.be/ID
+    if (u.hostname.includes('youtu.be')) {
+      return u.pathname.slice(1);
+    }
+    // youtube.com/watch?v=ID
+    if (u.hostname.includes('youtube.com')) {
+      return u.searchParams.get('v');
+    }
+  } catch (e) {
+    // ignore
+  }
+  // fallback regex
+  const m = url.match(/(youtu.be\/|v=|embed\/)([A-Za-z0-9_-]{11})/);
+  return m ? m[2] : null;
 }

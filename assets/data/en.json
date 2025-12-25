@@ -7,35 +7,35 @@
       "sections": [
         {
           "title": "About Me",
-          "content": "I am Süleyman Fatih. I am passionate about technology and creativity. I work professionally in the fields of systems management, network administration, and graphic design."
+          "content": "I am Süleyman Fatih — a developer and designer who enjoys producing at the intersection of technology, design, and systems. I focus on transforming ideas into functional and visual solutions, handling projects end-to-end with my own perspective."
         },
         {
-          "title": "Interests",
-          "content": "I am interested in software development, system architecture, graphic design, web design, UI/UX design, and data analytics."
+          "title": "Areas of Interest",
+          "content": "I am interested in system and network management, software infrastructure, graphic design, UI/UX design, and web technologies. I focus on creating functional, sustainable solutions by combining technical infrastructure with visual aesthetics."
         },
         {
-          "title": "Education",
-          "content": "I continuously improve myself in relevant fields and technical skills, and I follow the latest technologies."
+          "title": "How I Improve Myself",
+          "content": "I constantly focus on learning and self-improvement. I follow current technologies, build personal projects, and develop solutions based on real-world needs. I believe learning should be supported by hands-on practice rather than theory alone."
         }
       ],
       "projects": [
         {
-          "name": "Project 1",
-          "description": "Description",
+          "name": "3 Quarter Classroom",
+          "description": "A personal educational project focused on system administration, networking, and Linux. All content production, visual identity, video editing, narration, and brand structure are created by me. The project aims to present technical knowledge in a clear and accessible way.",
           "link": "https://github.com"
         },
         {
-          "name": "Project 2",
-          "description": "Description",
-          "link": "https://github.com"
+          "name": "GNU/Linux PNM OS",
+          "description": "A personal operating system project based on Arch Linux, focused on performance and simplicity. System configuration, package management, desktop customization, and user experience are entirely developed by me. Created to deeply understand and optimize Linux architecture.",
+          "link": "https://github.com/pnmlinux/"
         }
       ]
     },
     "design": {
       "title": "Graphic Design",
       "icon": "🎨",
-      "description": "My graphic design and creative project portfolio",
-      "career": "I have 5+ years of experience in graphic design. I create works by focusing on modern design principles and user experience.",
+      "description": "I create visual works where design is not only aesthetic, but also a form of communication.",
+      "career": "With over 6 years of experience, I have produced logo designs, corporate identities, digital content, and print materials. My goal is to create designs that balance aesthetics and functionality.",
       "gallery": [
         {
           "image": "assets/img/gallery/design1.jpg",
@@ -63,29 +63,29 @@
         }
       ],
       "video": {
-        "title": "Project Showcase Video",
-        "url": "assets/video/sample.mp4",
+        "title": "Portfolio Presentation Video",
+        "url": "https://youtu.be/jgE0-TCyGQ",
         "thumbnail": "assets/img/gallery/video-thumb.jpg"
       }
     },
     "systems": {
       "title": "Systems & Network Management",
       "icon": "⚙️",
-      "description": "My systems and network management projects",
+      "description": "Projects focused on Linux-based systems, automation solutions, and infrastructure development.",
       "github": {
         "username": "suleymanfatih",
         "link": "https://github.com/suleymanfatih"
       },
       "projects": [
         {
-          "name": "Project 1",
-          "description": "Description",
-          "link": "https://github.com/suleymanfatih/project1"
+          "name": "NetInstall Combo",
+          "description": "A lightweight and modular installation framework that enables automated and clean installations of Arch Linux, Pardus, and Gentoo from a single ISO. Features a customizable interface and multi-distribution support with a total size of only 45 MB.",
+          "link": "https://github.com/suleymanfatih/netinstall-combo"
         },
         {
-          "name": "Project 2",
-          "description": "Description",
-          "link": "https://github.com/suleymanfatih/project2"
+          "name": "System Notes & Documentation",
+          "description": "A collection of technical notes and documentation focused on Linux, system administration, networking, and terminal-based solutions. Built around real-world usage and practical scenarios.",
+          "link": "https://gist.github.com/suleymanfatih"
         }
       ]
     }
