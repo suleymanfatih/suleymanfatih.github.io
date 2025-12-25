@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Süleyman Fatih - Sürpriz</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #6a2beb 0%, #f60847 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 24px 0 24px;
+      z-index: 10;
+      pointer-events: none;
+    }
+    .back-btn, .mute-btn {
+      pointer-events: auto;
+      background: rgba(255,255,255,0.5);
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      cursor: pointer;
+      transition: background 0.2s;
+      font-size: 1.5rem;
+      outline: none;
+    }
+    .back-btn:hover, .mute-btn:hover {
+      background: rgba(255,255,255,0.8);
+    }
+    .back-btn {
+      margin-right: auto;
+    }
+    .mute-btn {
+      margin-left: auto;
+    }
+    .gif-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 60vh;
+      width: 100vw;
+      margin-top: 60px;
+    }
+    .gif-container img {
+      max-width: 90vw;
+      max-height: 60vh;
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      object-fit: contain;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    audio {
+      margin-top: 32px;
+      width: 320px;
+      outline: none;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: none;
+    }
+    @media (max-width: 600px) {
+      .gif-container {
+        height: 40vh;
+        margin-top: 40px;
+      }
+      .gif-container img {
+        max-width: 98vw;
+        max-height: 40vh;
+        border-radius: 12px;
+      }
+      .top-bar {
+        padding: 12px 8px 0 8px;
+      }
+      .back-btn, .mute-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="top-bar">
+    <button class="back-btn" onclick="window.history.back()" title="Geri Dön">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+    <button class="mute-btn" id="muteBtn" title="Sesi Aç/Kapat">
+      <i class="fas fa-volume-up" id="muteIcon"></i>
+    </button>
+  </div>
+  <div class="gif-container">
+    <img src="assets/img/publication_preview/relax.gif" alt="Dinlendirici GIF">
+  </div>
+  <audio id="bgAudio" autoplay loop>
+    <source src="assets/audio/relax.mp3" type="audio/mpeg">
+    Tarayıcınız audio elementini desteklemiyor.
+  </audio>
+  <script>
+    // Ses aç/kapat
+    const audio = document.getElementById('bgAudio');
+    const muteBtn = document.getElementById('muteBtn');
+    const muteIcon = document.getElementById('muteIcon');
+    muteBtn.addEventListener('click', function() {
+      audio.muted = !audio.muted;
+      muteIcon.className = audio.muted ? 'fas fa-volume-mute' : 'fas fa-volume-up';
+    });
+    // GIF zaten loopta oynar, ekstra bir şey gerekmez
+  </script>
+</body>
+</html>
