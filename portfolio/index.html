@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Süleyman Fatih - CV & Portfolyo</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo">Süleyman Fatih</div>
+      <div class="controls">
+        <!-- Language Selector -->
+        <div style="position: relative;">
+          <button class="language-selector" title="Dil Seçimi">🌐 Türkçe</button>
+          <div class="language-dropdown">
+            <button class="dropdown-item active" data-lang="tr">Türkçe</button>
+            <button class="dropdown-item" data-lang="en">English</button>
+            <button class="dropdown-item" data-lang="zh">中文</button>
+          </div>
+        </div>
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" title="Tema Değiştir">🌙 Koyu Mod</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Tab Navigation -->
+    <div class="tab-navigation">
+      <button class="tab-btn" onclick="switchTab('personal')">
+        <span class="tab-icon">👤</span>
+        Kişisel Hayat
+      </button>
+      <button class="tab-btn" onclick="switchTab('design')">
+        <span class="tab-icon">🎨</span>
+        Grafik Tasarım
+      </button>
+      <button class="tab-btn" onclick="switchTab('systems')">
+        <span class="tab-icon">⚙️</span>
+        Sistem & Ağ Yönetimi
+      </button>
+    </div>
+
+    <!-- Tab Contents -->
+    
+    <!-- Personal Life Tab -->
+    <div id="personal-tab" class="tab-content">
+      <!-- Content will be loaded from JSON -->
+    </div>
+
+    <!-- Design Tab -->
+    <div id="design-tab" class="tab-content">
+      <!-- Content will be loaded from JSON -->
+    </div>
+
+    <!-- Systems Tab -->
+    <div id="systems-tab" class="tab-content">
+      <!-- Content will be loaded from JSON -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <!-- Social links will be loaded from JSON -->
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
