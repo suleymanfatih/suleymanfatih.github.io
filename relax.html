@@ -63,6 +63,27 @@
       font-size: 1.3em;
       transition: color 0.2s;
     }
+    @media (max-width: 600px) {
+      .top-bar {
+        padding: 8px 4vw 0 4vw;
+      }
+      .back-btn, .mute-btn {
+        width: 54px;
+        height: 54px;
+        font-size: 1.5rem;
+      }
+      .mute-btn i {
+        font-size: 1.25em;
+      }
+      .play-btn {
+        width: 100px;
+        height: 100px;
+        font-size: 3.2rem;
+      }
+      .rest-text {
+        font-size: 1.15rem;
+      }
+    }
     .video-overlay {
       position: absolute;
       top: 0;
@@ -224,6 +245,7 @@
       let followMouse = false;
       let mouseMoveHandler = null;
 
+
       // Geriye sayım fonksiyonu
       let counter = 7;
       const baseSize = 1.1; // rem
@@ -239,19 +261,26 @@
           restText.style.display = 'none';
           countdown.style.display = 'none';
           clearInterval(countdownInterval);
-          // 7 saniye sonra ikonu mouse'u takip ettir
+          // 7 saniye sonra ikonu mouse ve dokunmatik ile takip ettir
           setTimeout(() => {
             followMouse = true;
             playBtn.style.transition = 'none';
             mouseMoveHandler = function(e) {
-              const x = e.clientX;
-              const y = e.clientY;
+              let x, y;
+              if (e.touches && e.touches.length > 0) {
+                x = e.touches[0].clientX;
+                y = e.touches[0].clientY;
+              } else {
+                x = e.clientX;
+                y = e.clientY;
+              }
               playBtn.style.position = 'fixed';
               playBtn.style.left = (x - playBtn.offsetWidth/2) + 'px';
               playBtn.style.top = (y - playBtn.offsetHeight/2) + 'px';
               playBtn.style.zIndex = '100';
             };
             document.addEventListener('mousemove', mouseMoveHandler);
+            document.addEventListener('touchmove', mouseMoveHandler);
           }, 0);
         }
       }, 1000);
@@ -271,8 +300,11 @@
             audio.currentTime = 0;
             audio.play();
             videoOverlay.style.display = 'none';
-            // Mouse takip olayını kaldır
-            if (mouseMoveHandler) document.removeEventListener('mousemove', mouseMoveHandler);
+            // Mouse ve touch takip olayını kaldır
+            if (mouseMoveHandler) {
+              document.removeEventListener('mousemove', mouseMoveHandler);
+              document.removeEventListener('touchmove', mouseMoveHandler);
+            }
             // Karartmayı kaldır
             setTimeout(() => {
               screenFade.style.opacity = '0';
