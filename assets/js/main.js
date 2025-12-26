@@ -255,7 +255,16 @@ function renderDesignTab() {
       if (g.gridRow) style += `grid-row: ${g.gridRow};`;
       if (type === 'wide') style += 'grid-column: span 2;';
       if (type === 'tall') style += 'grid-row: span 2;';
-      html += `<div class="gallery-item gallery-${type}" style="${style}"><img src="${g.image}" alt="${g.title}" loading="lazy"><div class="gallery-title">${g.title}</div></div>`;
+      // WebP desteği için <picture> yapısı
+      let imgPath = g.image;
+      let webpPath = imgPath.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+      html += `<div class="gallery-item gallery-${type}" style="${style}">
+        <picture>
+          <source srcset="${webpPath}" type="image/webp">
+          <img src="${imgPath}" alt="${g.title}" loading="lazy">
+        </picture>
+        <div class="gallery-title">${g.title}</div>
+      </div>`;
     });
     html += '</div>';
   }
