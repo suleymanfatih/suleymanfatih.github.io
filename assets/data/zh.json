@@ -38,38 +38,19 @@
       "description": "我将设计视为一种表达方式，而不仅仅是视觉呈现。",
       "career": "拥有 6 年以上的设计经验，涵盖标志设计、品牌视觉、数字内容与印刷设计。我的目标是在美学与功能性之间取得平衡。",
       "gallery": [
-        {
-          "image": "assets/img/gallery/design1.jpg",
-          "title": "品牌识别"
-        },
-        {
-          "image": "assets/img/gallery/design2.jpg",
-          "title": "印刷设计"
-        },
-        {
-          "image": "assets/img/gallery/design3.jpg",
-          "title": "创意包装设计"
-        },
-        {
-          "image": "assets/img/gallery/design4.jpg",
-          "title": "菜单与餐垫设计"
-        },
-        {
-          "image": "assets/img/gallery/design5.jpg",
-          "title": "杂志封面设计"
-        },
-        {
-          "image": "assets/img/gallery/design6.jpg",
-          "title": "概念设计"
-        },
-        {
-          "image": "assets/img/gallery/design7.jpg",
-          "title": "数字内容"
-        },
-        {
-          "image": "assets/img/gallery/design8.jpg",
-          "title": "单线艺术 / 插画"
-        }
+  { "image": "assets/img/gallery/design1.jpg", "title": "品牌视觉识别", "type": "normal" },
+  { "image": "assets/img/gallery/design2.jpg", "title": "平面传播设计", "type": "normal" },
+  { "image": "assets/img/gallery/design3.jpg", "title": "创意包装设计", "type": "normal" },
+  { "image": "assets/img/gallery/design4.jpg", "title": "菜单与餐垫设计", "type": "normal" },
+  { "image": "assets/img/gallery/design5.jpg", "title": "杂志封面设计", "type": "normal" },
+  { "image": "assets/img/gallery/design6.jpg", "title": "概念设计", "type": "normal" },
+  { "image": "assets/img/gallery/design7.jpg", "title": "数字内容设计", "type": "normal" },
+  { "image": "assets/img/gallery/design8.png", "title": "单线艺术 / 插画", "type": "normal" },
+  { "image": "assets/img/gallery/design9.png", "title": "户外广告设计", "type": "wide", "gridColumn": "1 / span 2", "gridRow": "3" },
+  { "image": "assets/img/gallery/design10.png", "title": "概念书籍封面设计", "type": "normal", "gridColumn": "3", "gridRow": "3" },
+  { "image": "assets/img/gallery/design11.png", "title": "品牌视觉应用", "type": "tall", "gridColumn": "4", "gridRow": "3 / span 2" },
+  { "image": "assets/img/gallery/design12.png", "title": "社交媒体视觉设计", "type": "normal", "gridColumn": "1", "gridRow": "4" },
+  { "image": "assets/img/gallery/design13.png", "title": "活动海报设计", "type": "wide", "gridColumn": "2 / span 2", "gridRow": "4" }
       ],
       "video": {
         "title": "作品集介绍视频",

@@ -248,7 +248,14 @@ function renderDesignTab() {
   if (data.gallery && data.gallery.length > 0) {
     html += '<div class="gallery">';
     data.gallery.forEach(g => {
-      html += `<div class="gallery-item"><img src="${g.image}" alt="${g.title}" loading="lazy"><div class="gallery-title">${g.title}</div></div>`;
+      // Varsayılan değerler
+      let type = g.type || 'normal';
+      let style = '';
+      if (g.gridColumn) style += `grid-column: ${g.gridColumn};`;
+      if (g.gridRow) style += `grid-row: ${g.gridRow};`;
+      if (type === 'wide') style += 'grid-column: span 2;';
+      if (type === 'tall') style += 'grid-row: span 2;';
+      html += `<div class="gallery-item gallery-${type}" style="${style}"><img src="${g.image}" alt="${g.title}" loading="lazy"><div class="gallery-title">${g.title}</div></div>`;
     });
     html += '</div>';
   }

@@ -1,3 +1,7 @@
+.gallery-wide-center {
+  grid-column: 2 / span 2 !important;
+  height: 280px;
+}
 * {
   margin: 0;
   padding: 0;
@@ -896,6 +900,16 @@ iframe {
   transition: transform var(--transition-base);
   box-shadow: 0 8px 20px var(--light-shadow);
   height: 280px;
+  /* Varsayılan grid ayarları */
+}
+
+.gallery-wide {
+  grid-column: span 2 !important;
+}
+
+.gallery-tall {
+  grid-row: span 2 !important;
+  height: 580px;
 }
 
 body.dark-mode .gallery-item {

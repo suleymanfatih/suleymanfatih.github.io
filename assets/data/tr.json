@@ -37,38 +37,19 @@
       "description": "Tasarımı yalnızca görsel değil, bir anlatım dili olarak ele aldığım yaratıcı çalışmalar üretiyorum.",
       "career": "6+ yıllık deneyimim boyunca logo, kurumsal kimlik, dijital içerik ve baskı tasarımları ürettim. Amacım estetik ile işlevselliği dengede tutan işler ortaya koymak.",
       "gallery": [
-        {
-          "image": "assets/img/gallery/design1.jpg",
-          "title": "Marka Kimliği"
-        },
-        {
-          "image": "assets/img/gallery/design2.jpg",
-          "title": "Basılı İletişim"
-        },
-        {
-          "image": "assets/img/gallery/design3.jpg",
-          "title": "Yaratıcı Ambalaj Tasarımı"
-        },
-        {
-          "image": "assets/img/gallery/design4.jpg",
-          "title": "Menü & Amerikan Servis Tasarımı"
-        },
-        {
-          "image": "assets/img/gallery/design5.jpg",
-          "title": "Dergi Kapağı Tasarımı"
-        },
-        {
-          "image": "assets/img/gallery/design6.jpg",
-          "title": "Konsept Tasarım"
-        },
-                {
-          "image": "assets/img/gallery/design7.jpg",
-          "title": "Dijital İçerik"
-        },
-{
-          "image": "assets/img/gallery/design8.jpg",
-          "title": "Monoline Art / Sanat Çalışması"
-        }
+        { "image": "assets/img/gallery/design1.jpg", "title": "Marka Kimliği", "type": "normal" },
+        { "image": "assets/img/gallery/design2.jpg", "title": "Basılı İletişim", "type": "normal" },
+        { "image": "assets/img/gallery/design3.jpg", "title": "Yaratıcı Ambalaj Tasarımı", "type": "normal" },
+        { "image": "assets/img/gallery/design4.jpg", "title": "Menü & Amerikan Servis Tasarımı", "type": "normal" },
+        { "image": "assets/img/gallery/design5.jpg", "title": "Dergi Kapağı Tasarımı", "type": "normal" },
+        { "image": "assets/img/gallery/design6.jpg", "title": "Konsept Tasarım", "type": "normal" },
+        { "image": "assets/img/gallery/design7.jpg", "title": "Dijital İçerik", "type": "normal" },
+        { "image": "assets/img/gallery/design8.png", "title": "Monoline Art / Sanat Çalışması", "type": "normal" },
+        { "image": "assets/img/gallery/design9.png", "title": "Açık Hava Reklam Tasarımı", "type": "wide", "gridColumn": "1 / span 2", "gridRow": "3" },
+        { "image": "assets/img/gallery/design10.png", "title": "Kavramsal Kitap Kapağı Tasarımı", "type": "normal", "gridColumn": "3", "gridRow": "3" },
+        { "image": "assets/img/gallery/design11.png", "title": "Marka Kimliği", "type": "tall", "gridColumn": "4", "gridRow": "3 / span 2" },
+        { "image": "assets/img/gallery/design12.png", "title": "Sosyal Medya Görsel Tasarımı", "type": "normal", "gridColumn": "1", "gridRow": "4" },
+        { "image": "assets/img/gallery/design13.png", "title": "Etkinlik Afiş Tasarımı", "type": "wide", "gridColumn": "2 / span 2", "gridRow":"4" }
 
       ],
       "video": {

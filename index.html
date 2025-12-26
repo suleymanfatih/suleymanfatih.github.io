@@ -73,7 +73,42 @@
 
     <!-- Tab Contents -->
     <div id="personal-tab" class="tab-content active"></div>
-    <div id="design-tab" class="tab-content"></div>
+    <div id="design-tab" class="tab-content">
+      <div class="design-intro">
+        <h2>Grafik Tasarım Portföyü</h2>
+        <p>Çalışmalarımdan seçmeler. Portföyüm sürekli güncellenmektedir.</p>
+      </div>
+      <div class="gallery" style="grid-template-columns: repeat(4, 1fr); grid-auto-rows: 1fr;">
+        <!-- 8 adet kare fotoğraf (4x2 grid) -->
+        <div class="gallery-item"><img src="assets/img/gallery/design1.jpg" alt="Design 1"></div>
+        <div class="gallery-item"><img src="assets/img/gallery/design2.jpg" alt="Design 2"></div>
+        <div class="gallery-item"><img src="assets/img/gallery/design3.jpg" alt="Design 3"></div>
+        <div class="gallery-item"><img src="assets/img/gallery/design4.jpg" alt="Design 4"></div>
+        <div class="gallery-item"><img src="assets/img/gallery/design5.jpg" alt="Design 5"></div>
+        <div class="gallery-item"><img src="assets/img/gallery/design6.jpg" alt="Design 6"></div>
+        <div class="gallery-item"><img src="assets/img/gallery/design7.jpg" alt="Design 7"></div>
+        <div class="gallery-item"><img src="assets/img/gallery/design8.jpg" alt="Design 8"></div>
+        <!-- Alt sıra: özel grid alanları -->
+        <!-- Yatay dikdörtgen (2x1) -->
+        <div class="gallery-item gallery-item-wide" style="grid-column: 1 / span 2; grid-row: 3 / span 1; height: 280px;">
+          <img src="assets/img/gallery/Bun%20-%20Free%20Business%20Card%2003.png" alt="Yatay Tasarım">
+        </div>
+        <!-- Dikey dikdörtgen (1x2) -->
+        <div class="gallery-item gallery-item-tall" style="grid-column: 3 / span 1; grid-row: 3 / span 2; height: 580px;">
+          <img src="assets/img/gallery/video-thumb.jpg" alt="Dikey Tasarım" style="object-fit:cover; height:100%; width:100%;">
+        </div>
+        <!-- Alt sıranın solunda kalan kareler -->
+        <div class="gallery-item" style="grid-column: 1; grid-row: 4;">
+          <img src="assets/img/gallery/design1.jpg" alt="Ekstra Kare 1">
+        </div>
+        <div class="gallery-item" style="grid-column: 2; grid-row: 4;">
+          <img src="assets/img/gallery/design2.jpg" alt="Ekstra Kare 2">
+        </div>
+        <div class="gallery-item" style="grid-column: 4; grid-row: 3 / span 2;">
+          <img src="assets/img/gallery/design3.jpg" alt="Ekstra Kare 3">
+        </div>
+      </div>
+    </div>
     <div id="systems-tab" class="tab-content"></div>
   </main>
 
