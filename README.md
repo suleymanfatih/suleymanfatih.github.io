@@ -160,12 +160,3 @@ JSON dosyasındaki footer kısmında:
    ```html
    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
    ```
-
-## 📄 Lisans
-
-Özgürce kullanabilir ve özelleştirebilirsiniz.
-
----
-
-**Son Güncelleme:** Aralık 2025
-**Geliştirici:** Yapay Zeka Asistanı
