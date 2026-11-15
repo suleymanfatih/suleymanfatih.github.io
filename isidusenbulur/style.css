@@ -1,0 +1,258 @@
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('barlow-condensed-700.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('barlow-condensed-900.woff2') format('woff2');
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+img {
+  -webkit-user-drag: none;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
+  background: #000;
+}
+
+.star-wars-intro {
+  touch-action: none;
+  position: fixed;
+  inset: 0;
+  height: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  isolation: isolate;
+  background: #000;
+  color: #ebd71c;
+  font-family: "Barlow Condensed", Arial, sans-serif;
+  font-weight: 700;
+}
+
+.star-wars-intro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("background.jpg") center / cover;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  pointer-events: none;
+}
+
+.logo-phase .star-wars-intro::before {
+  opacity: 1;
+}
+
+/* Duraklatılan logo ilk karesini çizer. Başlık bitene kadar ayrıca gizle. */
+body:not(.logo-phase) .main-logo {
+  visibility: hidden;
+}
+
+.main-logo, .intro-text {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.main-logo {
+  animation: intro-logo 11s linear forwards;
+}
+
+.main-logo img {
+  display: block;
+  width: min(85vw, 85dvh, 900px);
+  height: auto;
+  border-radius: 50%;
+}
+
+.intro-text {
+  padding: 20px;
+  text-align: center;
+  font-size: clamp(32px, 7vw, 96px);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: .035em;
+  color: #000;
+  -webkit-text-stroke: clamp(1.5px, .2vw, 2.5px) #ebd71c;
+  paint-order: stroke fill;
+  animation: intro-heading 4s ease-in-out forwards;
+}
+
+.main-content {
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  bottom: 0;
+  /* Perspektif düzlemini uzatmak, yazının ekranın üstüne ulaşmasını sağlar. */
+  height: 300%;
+  overflow: visible;
+  font-size: clamp(28px, 4.5vw, 72px);
+  transform-origin: 50% 100%;
+  transform: perspective(80vh) rotateX(25deg);
+  transform: perspective(80dvh) rotateX(25deg);
+  text-align: center;
+}
+
+.title-content {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  animation: crawl var(--crawl-duration, 400s) linear 11s infinite;
+}
+
+.crawl-section {
+  white-space: pre-line;
+  display: flow-root;
+}
+
+body:not(.logo-phase) .main-logo,
+body:not(.started) .intro-text,
+body:not(.logo-phase) .title-content {
+  animation-play-state: paused;
+}
+
+@keyframes intro-logo {
+  0% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(.08);
+  }
+}
+
+@keyframes intro-heading {
+  0%, 100% {
+    opacity: 0;
+  }
+  15%, 80% {
+    opacity: 1;
+  }
+}
+
+@keyframes crawl {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-100% - var(--crawl-stage-height, 300vh)));
+  }
+}
+
+.sound-toggle, .speed-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font: 700 18px/1 "Barlow Condensed", Arial, sans-serif;
+  text-align: center;
+  color: #ebd71c;
+  background: #111;
+  border: 1px solid #ebd71c;
+  border-radius: 14px;
+  corner-shape: squircle;
+}
+
+.sound-toggle {
+  position: fixed;
+  z-index: 10;
+  bottom: max(12px, env(safe-area-inset-bottom));
+  left: 12px;
+  width: 132px;
+  height: 44px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.controls {
+  transition: opacity .8s ease;
+}
+
+.controls.faded {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.controls:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.segment-divider {
+  width: 65%;
+  height: 0;
+  margin: 1.5em auto;
+  border: 0;
+  border-top: .06em solid currentColor;
+}
+
+.speed-indicator {
+  position: fixed;
+  z-index: 30;
+  top: max(20px, env(safe-area-inset-top));
+  left: 12px;
+  width: 78px;
+  height: 36px;
+  padding: 6px 10px;
+  gap: 6px;
+  pointer-events: none;
+}
+
+/* Fontun görsel merkezini simgelerle hizala. */
+.sound-toggle > span, .speed-label {
+  display: block;
+  transform: translateY(-.08em);
+}
+
+.speed-arrows {
+  display: flex;
+  align-items: center;
+}
+
+.speed-arrows::before, .speed-arrows::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 7px solid currentColor;
+}
+
+body:not(.started) .controls {
+  visibility: hidden;
+}
